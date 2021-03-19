@@ -1,12 +1,12 @@
-import { ADD_EMPLOYEE, EDIT_EMPLOYEE, EmployeeAction, Employee } from './types';
+import { ADD_EMPLOYEE, EDIT_EMPLOYEE, EmployeeAction, EmployeeType } from './types';
 import employeesArr from '../constants/employees.json'
 
-const initialValue: Employee[] = employeesArr
+const initialValue: EmployeeType[] = employeesArr
 
-export const reduser = (state = initialValue, action: EmployeeAction): Employee[] => {
+export const reduser = (state = initialValue, action: EmployeeAction): EmployeeType[] => {
   switch (action.type) {
     case ADD_EMPLOYEE:
-      return [...state, action.payload];
+      return [ action.payload, ...state];
     case EDIT_EMPLOYEE: 
       return state.map((el) => {
         if (el.id === action.payload.id) {
@@ -16,7 +16,6 @@ export const reduser = (state = initialValue, action: EmployeeAction): Employee[
         }
       });
     default:
-      return state
+      return state;
   }
-
 }

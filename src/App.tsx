@@ -1,32 +1,25 @@
-import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { Employee } from './redux/types'
 import NavBar from './components/NavBar/NavBar';
+import Main from './pages/Main/Main';
+import Edit from './pages/Edit/Edit';
+import Create from './pages/Create/Create';
 
 
 function App() {
-  const [rolesArr, setRolesArr] = useState(null);
-  const [emploeesArr, setEmploeesArr] = useState(null)
 
-
-  useEffect(() => {
-    // достаем и джсона роли и создаем массив из ролей, без повторения для рендера в поиске
-  }, [])
-  const employees = useSelector((state: Employee[]) => state)
-  console.log(employees)
   return (
     <>
       <NavBar />
       <Switch>
-        <Route path='/'>
-
+        <Route exact path='/'>
+          <Main />
         </Route>
-        <Route path='/edit'>
-          
+        <Route path='/edit/:id'>
+          <Edit />
         </Route>
         <Route path='/create'>
-          
+          <Create />
         </Route>
         <Route path='*'>
           // Тут 404

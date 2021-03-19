@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+}
+
+.empContainer {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.formContainer {
+  width: auto
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    flex-direction: column-reverse;
+  }
+  .empContainer {
+    width: 100%;
+  }
+}

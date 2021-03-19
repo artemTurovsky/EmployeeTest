@@ -1,4 +1,4 @@
-export interface Employee {
+export interface EmployeeType {
   id: number,
   name: string,
   isArchive: boolean,
@@ -13,5 +13,5 @@ export const EDIT_EMPLOYEE = 'EDIT_EMPLOYEE';
 
 export interface EmployeeAction {
   type: typeof ADD_EMPLOYEE | typeof EDIT_EMPLOYEE,
-  payload: Employee
+  payload: EmployeeType
 }
